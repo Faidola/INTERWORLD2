@@ -1,0 +1,124 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="assets/css/styles.css">
+        <title>Quem quem-somos</title>
+    </head>
+<body>
+   
+    <header class="header" id="header">
+        <nav class="nav container">
+           <img src="logo.png"  height="130px" width="120px">
+           <a href="#" class="nav__logo">InterWorld Exchange</a>
+
+           <div class="nav__menu" id="nav-menu">
+              <ul class="nav__list">
+                 <li class="nav__item">
+                    <a href="#" class="nav__link">Inicio</a>
+                 </li>
+
+                 <li class="nav__item">
+                    <a href="Pacotes.html" class="nav__link">Pacotes</a>
+                 </li>
+
+                 <li class="nav__item">
+                    <a href="Paises.html" class="nav__link">Paises</a>
+                 </li>
+
+                 <li class="nav__item">
+                    <a href="#" class="nav__link"> Quem somos</a>
+                 </li>
+
+                 <li class="nav__item">
+                    <a href="Contato.html" class="nav__link">Contato</a>
+                 </li>
+              </ul>
+
+              <div class="nav__close" id="nav-close">
+                 <i class="ri-close-line"></i>
+              </div>
+           </div>
+
+           <div class="nav__actions">
+            
+              <i class="" id="search-btn"></i>
+
+              <a href="login.html" class="ri-user-line nav__login" id="login-btn"></a>
+
+              
+              <div class="nav__toggle" id="nav-toggle">
+                 <i class="ri-menu-line"></i>
+              </div>
+           </div>
+        </nav>
+     </header>
+
+     <div class="search" id="search">
+        <form action="" class="search__form">
+           <i class="ri-search-line search__icon"></i>
+           <input type="search" placeholder="What are you looking for?" class="search__input">
+        </form>
+
+        <i class="ri-close-line search__close" id="search-close"></i>
+     </div> 
+       
+    
+
+    <main>
+        <div class="quem-somos">Quem Somos</div>
+        
+        <p>A InterWorld é uma empresa especializada em proporcionar experiências educacionais e culturais enriquecedoras para estudantes e profissionais em todo o mundo. Com mais de 15 anos de experiência no mercado, nossa equipe dedicada trabalha incansavelmente para criar oportunidades únicas de aprendizado e crescimento pessoal.</p>
+
+        <div class="mission-vision">
+            <div class="mission">
+                <h2>Nossa Missão</h2>
+                <p>Promover o entendimento intercultural e o desenvolvimento pessoal através de experiências de intercâmbio transformadoras, capacitando indivíduos a se tornarem cidadãos globais conscientes e preparados para os desafios do mundo moderno.</p>
+            </div>
+            <div class="vision">
+                <h2>Nossa Visão</h2>
+                <p>Ser reconhecida como a principal facilitadora de intercâmbios culturais e educacionais, inspirando uma geração de líderes globais e fomentando a cooperação internacional em um mundo cada vez mais interconectado.</p>
+            </div>
+        </div>
+
+        <h2>Nossa Equipe</h2>
+        <div class="team-member">
+            <img src="eu.jpeg"  width="100" height="100">
+            <div>
+                <h3>Vinicius Marques</h3>
+                <p>Fundador e CEO</p>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="Bruno.jpeg"  width="100" height="100">
+            <div>
+                <h3>Bruno</h3>
+                <p>CEO e Diretor de Programas</p>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="Rafa.jpeg"  width="100" height="100">
+            <div>
+                <h3>Rafel Olveira</h3>
+                <p>CEO e Coordenador de Suporte ao Estudante</p>
+            </div>
+        </div>
+
+        <p>Nossa equipe diversificada e experiente está comprometida em fornecer orientação personalizada e suporte em todas as etapas do seu programa de intercâmbio. Desde a seleção do programa ideal até a adaptação cultural no país de destino, estamos aqui para garantir que sua experiência seja inesquecível e enriquecedora.</p>
+
+        <p>Na Intercâmbio Cultural, acreditamos que viajar e estudar no exterior não são apenas oportunidades de aprendizado acadêmico, mas também de crescimento pessoal, desenvolvimento de habilidades interculturais e construção de amizades duradouras. Junte-se a nós nesta jornada de descoberta e transformação!</p>
+    </main>
+      
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const teamMembers = document.querySelectorAll('.team-member');
+        teamMembers.forEach(member => {
+            member.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05)';
+                this.style.transition = 'transform 0.3s ease';
+            });
+            member.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+    });
+    </script>
+</body></html>
