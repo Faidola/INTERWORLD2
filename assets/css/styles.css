@@ -154,6 +154,11 @@ img {
   padding-bottom: 50px;
 }
 
+.main-adm{
+  margin-top: 150px;
+  
+}
+
 .nav {
   height: var(--header-height);
   display: flex;

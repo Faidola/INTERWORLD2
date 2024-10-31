@@ -8,102 +8,36 @@
     <link rel="stylesheet" href="../assets/css/adiministrativa.css">
 </head>
 <body>
-    <!-- <header class="header" id="header">
-      <nav class="nav container">
-         <img src="../assets/img/logo.png"  height="130px" width="120px">
-         <a href="../index.html" class="nav__logo">InterWorld Exchange</a>
+    <header class="header" id="header">
+        <nav class="nav container">
+            <img src="../assets/img/logo.png" height="130px" width="120px">
+            <a href="#" class="nav__logo">InterWorld Exchange</a>
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item">
-                    <button><a href="login.html">Sair</a></button>
+                        <button><a href="login.html">Sair</a></button>
                     </li>
                 </ul>
- 
                 <div class="nav__close" id="nav-close">
                     <i class="ri-close-line"></i>
                 </div>
-         </div>
-     
-         <div class="nav__actions">
-          
-            <i class="" id="search-btn"></i>
- 
-           
-            <a href="login.html" class="ri-user-line nav__login" id="login-btn"></a>
- 
-           
-            <div class="nav__toggle" id="nav-toggle">
-               <i class="ri-menu-line"></i>
             </div>
-         </div>
-
-               <div class="nav__close" id="nav-close">
-                  <i class="ri-close-line"></i>
-               </div>
-            </div>
-
-                <div class="nav__actions">
-             
-               <i class="" id="search-btn"></i>
-
-               <a href="pages/login.html" class="ri-user-line nav__login" id="login-btn"></a>
-
-               
-               <div class="nav__toggle" id="nav-toggle">
-                  <i class="ri-menu-line"></i>
-                </div>
-            </div>
-      </nav>
-    
-    </header> -->
-
-    <header class="header" id="header">
-        <nav class="nav container">
-           <img src="../assets/img/logo.png"  height="130px" width="120px">
-           <a href="#" class="nav__logo">InterWorld Exchange</a>
-
-           <div class="nav__menu" id="nav-menu">
-              <ul class="nav__list">
-                    <li class="nav__item">
-                        <button><a href="login.html">Sair</a></button>
-                    </li>
-              </ul>
-
-
-              <div class="nav__close" id="nav-close">
-                 <i class="ri-close-line"></i>
-              </div>
-           </div>
         </nav>
-     </header>
+    </header>
 
-    <main>
-        <section id="programas">
-            <h2>Programas de Intercâmbio</h2>
-            <div id="lista-programas">
-                <!-- Programas serão listados aqui -->
-            </div>
-        </section>
-
+    <main class="main-adm">
         <section id="admin">
-            <h2>Área Administrativa</h2>
-            <form id="form-programa">
-                <label for="nome">Nome do Programa:</label>
-                <input type="text" id="nome" required>
-                
-                
-                <label for="pais">País:</label>
-                <input type="text" id="pais" required>
-                
-                <label for="descricao">Descrição:</label>
-                <textarea id="descricao" required></textarea>
-                
-                <button type="submit">Adicionar Programa</button>
+            <h1>Gerenciar Intercambistas</h1>
+            <form id="form-intercambista">
+                <input type="text" placeholder="Nome" id="nome-adm" required>
+                <input type="email" placeholder="Email" id="email-adm" required>
+                <input type="password" placeholder="Senha" id="senha-adm" required>
+                <button type="submit">Adicionar Intercambista</button>
+                <button type="button" id="atualizar-btn" style="display: none;">Atualizar Intercambista</button>
             </form>
-
-            <h3>Remover Programa</h3>
-            <input type="text" id="programa-remover" placeholder="Nome do Programa">
-            <button id="remover-programa">Remover</button>
+            <div id="lista-intercambistas">
+                <!-- Intercambistas serão listados aqui -->
+            </div>
         </section>
     </main>
 
@@ -111,6 +45,6 @@
         <p>&copy; 2024 Interworld</p>
     </footer>
 
-    <script src="../js/adiministrativa.js/script.js"></script>
+    <script src="../js/adiministrativa.js"></script>
 </body>
 </html>

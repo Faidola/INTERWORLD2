@@ -1,78 +1,70 @@
-document.getElementById('btn-cria-conta').addEventListener('click', async function(event) {
-    event.preventDefault(); // Impede o envio padrão do formulário
+const formIntercambista = document.getElementById('form-intercambista');
+const listaIntercambistas = document.getElementById('lista-intercambistas');
+let editandoId = null; // Para controlar a edição
 
-    console.log("acessando metodo de chamada da API de intercambistas");
+// Função para listar intercambistas
+async function listarIntercambistas() {
+    const resposta = await fetch('http://localhost:5000/intercambistas'); // URL da sua API
+    const intercambistas = await resposta.json();
+    listaIntercambistas.innerHTML = '';
+    intercambistas.forEach(intercambista => {
+        const div = document.createElement('div');
+        div.innerHTML = `
+            <p>${intercambista.nome} (${intercambista.email})</p>
+            <button onclick="editarIntercambista(${intercambista.id}, '${intercambista.nome}', '${intercambista.email}')">Editar</button>
+            <button onclick="deletarIntercambista(${intercambista.id})">Deletar</button>
+        `;
+        listaIntercambistas.appendChild(div);
+    });
+}
 
-    const nome = document.getElementById('nome-cria-conta').value;
-    const email = document.getElementById('email-cria-conta').value;
-    const senha = document.getElementById('senha-cria-conta').value;
+// Função para adicionar ou atualizar intercambista
+async function adicionarOuAtualizarIntercambista(event) {
+    event.preventDefault();
 
-    const dados = {
-        nome,
-        email,
-        senha
-    };
+    const nome = document.getElementById('nome-adm').value;
+    const email = document.getElementById('email-adm').value;
+    const senha = document.getElementById('senha-adm').value;
 
-    try {
-        const resposta = await fetch('http://localhost:5000/intercambistas', { // Substitua pela URL da sua API
+    if (editandoId) {
+        // Atualizando intercambista
+        await fetch(`http://localhost:5000/intercambistas/${editandoId}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ nome, email, senha })
+        });
+        editandoId = null; // Reseta o ID
+        document.getElementById('atualizar-btn').style.display = 'none';
+    } else {
+        // Adicionando novo intercambista
+        await fetch('http://localhost:5000/intercambistas', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(dados)
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ nome, email, senha })
         });
-    
-        if (!resposta.ok) {
-            throw new Error('Erro ao cadastrar: ' + resposta.statusText);
-        } else {
-            console.log("corpo da resposta: ", resposta.body)
-            console.log("resposta completa: ", resposta)
-            window.location.href = '../index.html';
-        }
-        //const resultado = await resposta.json();
-        //document.getElementById('mensagem').textContent = 'Cadastro realizado com sucesso!';
-        // Aqui você pode redirecionar o usuário ou fazer outra ação
-    } catch (error) {
-        console.log("Falha ao requisitar API: ", error);
     }
-});
 
-document.getElementById('login-intercambista').addEventListener('submit', async function(event) {
-    console.log("acessando metodo de chamada da API de login intercambista");
+    formIntercambista.reset();
+    listarIntercambistas(); // Atualiza a lista
+}
 
-    const email = document.getElementById('email-login').value;
-    const senha = document.getElementById('senha-login').value;
+// Função para editar intercambista
+function editarIntercambista(id, nome, email) {
+    editandoId = id;
+    document.getElementById('nome-adm').value = nome;
+    document.getElementById('email-adm').value = email;
+    document.getElementById('senha-adm').value = ''; // Limpa a senha
+    document.getElementById('atualizar-btn').style.display = 'inline-block';
+}
 
-    // Monta a URL com query parameters
-    const url = new URL(`http://localhost:5000/intercambistas/${email}`);
-    url.searchParams.append('senha', senha);
+// Função para deletar intercambista
+async function deletarIntercambista(id) {
+    await fetch(`http://localhost:5000/intercambistas/${id}`, { method: 'DELETE' });
+    listarIntercambistas(); // Atualiza a lista
+}
 
-    console.log("URL da requisição: ", url);
-    console.log("URL da requisição: ", url.hostname);
-    console.log("URL da requisição: ", url.searchParams);
+// Adiciona o evento de submit no formulário
+formIntercambista.addEventListener('submit', adicionarOuAtualizarIntercambista);
 
-    try {
-        const resposta = await fetch(url, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then(resposta => {
-            console.log("resposta API: ", resposta);
-            if (!resposta.ok) {
-                console.log('Erro ao chamar a API: ', resposta);
-                throw new Error('Erro ao consultar a API: ' + resposta.statusText);
-            }
-            window.location.href = '../index.html';
-            return resposta.json(); // Retorna a resposta como JSON
-        })
-        .then(data => {
-            console.log('Dados recebidos:', data);
-        })
-        .catch(error => {
-            console.log("Falha ao requisitar API: ", error);
-        });
-    } catch (error) {
-        console.log("Falha ao requisitar API: ", error);
-    }
-});
+// Chama a função para listar intercambistas ao carregar a página
+window.onload = listarIntercambistas;
