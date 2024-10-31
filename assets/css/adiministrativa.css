@@ -34,6 +34,24 @@ section {
     margin-bottom: 20px;
 }
 
+.table-intercambistas {
+    padding-top: 30px;
+}
+
+.th-intercambistas {
+    min-width: 100px;
+    text-align: start;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#lista-intercambistas {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
 form {
     margin-bottom: 20px;
 }

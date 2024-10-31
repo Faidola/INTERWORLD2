@@ -26,18 +26,21 @@
     </header>
 
     <main class="main-adm">
-        <section id="admin">
-            <h1>Gerenciar Intercambistas</h1>
-            <form id="form-intercambista">
-                <input type="text" placeholder="Nome" id="nome-adm" required>
-                <input type="email" placeholder="Email" id="email-adm" required>
-                <input type="password" placeholder="Senha" id="senha-adm" required>
-                <button type="submit">Adicionar Intercambista</button>
-                <button type="button" id="atualizar-btn" style="display: none;">Atualizar Intercambista</button>
-            </form>
-            <div id="lista-intercambistas">
-                <!-- Intercambistas serão listados aqui -->
-            </div>
+        <section id="lista-intercambistas">
+            <h2>Lista de Intercambistas</h2>
+            <table class="table-intercambistas">
+                <thead>
+                    <tr>
+                        <th class="th-intercambistas">ID</th>
+                        <th class="th-intercambistas">Nome</th>
+                        <th class="th-intercambistas">Email</th>
+                        <th class="th-intercambistas">Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="intercambistas-tbody">
+                    <!-- Intercambistas serão listados aqui -->
+                </tbody>
+            </table>
         </section>
     </main>
 
@@ -45,6 +48,6 @@
         <p>&copy; 2024 Interworld</p>
     </footer>
 
-    <script src="../js/adiministrativa.js"></script>
+    <script src="../assets/js/administrativa.js"></script>
 </body>
 </html>
