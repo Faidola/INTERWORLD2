@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Escolas de Intercâmbio</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+    <header class="header" id="header">
+        <nav class="nav container">
+           <img src="../assets/img/logo.png"  height="130px" width="120px">
+           <a href="#" class="nav__logo">InterWorld Exchange</a>
+
+           <div class="nav__menu" id="nav-menu">
+              <ul class="nav__list">
+                    <li class="nav__item">
+                        <button><a href="login.html">Sair</a></button>
+                    </li>
+              </ul>
+
+
+              <div class="nav__close" id="nav-close">
+                 <i class="ri-close-line"></i>
+              </div>
+           </div>
+        </nav>
+    </header>
+    
+    <main class="main-cadastro-escola">
+        <section id="cadastro-escola">
+            <h2>Formulário de Cadastro</h2>
+            <form id="form-cadastro">
+                <label for="numero-escola">Número da Escola:</label>
+                <input type="text" id="numero-escola" required>
+                
+                <label for="localizacao">Localização:</label>
+                <input type="text" id="localizacao" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                
+                <label for="descricao">Descrição:</label>
+                <textarea id="descricao" required></textarea>
+                
+                <button><a href="adm.html">Cadastrar a escola</a></button>
+            </form>
+
+            <div id="mensagem"></div>
+
+        </header>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 InterWorld Cadastro escolar</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
